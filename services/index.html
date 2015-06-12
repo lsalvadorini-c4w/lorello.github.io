@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Ip - Lorello's Notes</title>
+  <title>Services - Lorello's Notes</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -64,19 +64,8 @@
 
     
         
-            <li class="toctree-l1 current">
-                <a class="current" href="./">Ip</a>
-                
-                    <ul>
-                    
-                        <li class="toctree-l3"><a href="#linux-ip">Linux IP</a></li>
-                        
-                            <li><a class="toctree-l4" href="#devices">Devices</a></li>
-                        
-                            <li><a class="toctree-l4" href="#routing">Routing</a></li>
-                        
-                    
-                    </ul>
+            <li class="toctree-l1 ">
+                <a class="" href="../ip/">Ip</a>
                 
             </li>
         
@@ -139,8 +128,15 @@
 
     
         
-            <li class="toctree-l1 ">
-                <a class="" href="../services/">Services</a>
+            <li class="toctree-l1 current">
+                <a class="current" href="./">Services</a>
+                
+                    <ul>
+                    
+                        <li class="toctree-l3"><a href="#services">Services</a></li>
+                        
+                    
+                    </ul>
                 
             </li>
         
@@ -175,7 +171,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../Api_auth/">Docs</a> &raquo;</li>
     
-    <li>Ip</li>
+    <li>Services</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -188,19 +184,20 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="linux-ip">Linux IP</h1>
-<h2 id="devices">Devices</h2>
-<p>Show and change device settings
-    ip link set dev eth2 up|down
-    ip link set dev eth0 up|down arp on|off name NAME mtu 9000</p>
-<p>Show current settings for interface
-    ip link show dev NAME</p>
-<p>Show only UP interfaces
-    ip link show up</p>
-<h2 id="routing">Routing</h2>
-<pre><code>ip route show
-ip route add 192.168.1.0/24 dev eth0
-ip route add default via 192.168.1.254
+              <h1 id="services">Services</h1>
+<p>What services are started on boot?</p>
+<pre><code>service --status-all
+</code></pre>
+<ul>
+<li>[ + ] – Services with this sign are currently running.</li>
+<li>[ – ] – Services with this sign are not currently running..</li>
+<li>[ ? ] – Services that do not have a status switch.</li>
+</ul>
+<p>Remove a service</p>
+<pre><code>update-rc.d -f apache2 remove
+</code></pre>
+<p>Add a service</p>
+<pre><code>update-rc.d apache2 defaults
 </code></pre>
             </div>
           </div>
@@ -208,10 +205,10 @@ ip route add default via 192.168.1.254
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../mysql/" class="btn btn-neutral float-right" title="Mysql"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../zfs/" class="btn btn-neutral float-right" title="Zfs"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../puppet/" class="btn btn-neutral" title="Puppet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -239,14 +236,14 @@ ip route add default via 192.168.1.254
         
             <a href="https://github.com/lorello/lorello.github.io/" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
         
-      <span><a href="../git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../puppet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../zfs/" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 
 <!--
 MkDocs version  : 0.12.2
-Docs Build Date : 2015-06-12 16:53:19.693094
+Docs Build Date : 2015-06-12 16:53:19.730576
 -->
 </body>
 </html>
