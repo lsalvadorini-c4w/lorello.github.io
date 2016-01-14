@@ -112,7 +112,7 @@
         }, 
         {
             "location": "/ip/", 
-            "text": "Linux IP\n\n\nDevices\n\n\nShow and change device settings\n    ip link set dev eth2 up|down\n    ip link set dev eth0 up|down arp on|off name NAME mtu 9000\n\n\nShow current settings for interface\n    ip link show dev NAME\n\n\nShow only UP interfaces\n    ip link show up\n\n\nRouting\n\n\nip route show\nip route add 192.168.1.0/24 dev eth0\nip route add default via 192.168.1.254", 
+            "text": "Linux IP\n\n\nDevices\n\n\nShow and change device settings\n    ip link set dev eth2 up|down\n    ip link set dev eth0 up|down arp on|off name NAME mtu 9000\n\n\nShow current settings for interface\n    ip link show dev NAME\n\n\nShow only UP interfaces\n    ip link show up\n\n\nVlan\n\n\nAdd a vlan interface\n\n\nip link add link eth1 name eth1.101 type vlan id 101\n\n\n\nRouting\n\n\nip route show\nip route add 192.168.1.0/24 dev eth0\nip route add default via 192.168.1.254", 
             "title": "Ip"
         }, 
         {
@@ -124,6 +124,11 @@
             "location": "/ip/#devices", 
             "text": "Show and change device settings\n    ip link set dev eth2 up|down\n    ip link set dev eth0 up|down arp on|off name NAME mtu 9000  Show current settings for interface\n    ip link show dev NAME  Show only UP interfaces\n    ip link show up", 
             "title": "Devices"
+        }, 
+        {
+            "location": "/ip/#vlan", 
+            "text": "Add a vlan interface  ip link add link eth1 name eth1.101 type vlan id 101", 
+            "title": "Vlan"
         }, 
         {
             "location": "/ip/#routing", 
