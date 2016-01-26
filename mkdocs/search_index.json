@@ -246,6 +246,21 @@
             "title": "Use"
         }, 
         {
+            "location": "/postfix/", 
+            "text": "Postfix mail server\n\n\nDebug commands\n\n\nWho is using the server to send messages?\n\n\nfind /var/spool/postfix/deferred -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'\nfind /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'", 
+            "title": "Postfix"
+        }, 
+        {
+            "location": "/postfix/#postfix-mail-server", 
+            "text": "", 
+            "title": "Postfix mail server"
+        }, 
+        {
+            "location": "/postfix/#debug-commands", 
+            "text": "Who is using the server to send messages?  find /var/spool/postfix/deferred -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'\nfind /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'", 
+            "title": "Debug commands"
+        }, 
+        {
             "location": "/puppet/", 
             "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"", 
             "title": "Puppet"
