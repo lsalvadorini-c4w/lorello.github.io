@@ -212,7 +212,7 @@
         }, 
         {
             "location": "/php/", 
-            "text": "PHP\n\n\nPhp-fpm\n\n\nnewrelic.appname = \"web30 - liste.lillinet.org\"\npost_max_size = 52M\nupload_max_filesize = 52M\nmemory_limit = 192M\ncatch_workers_output = yes\nlog_errors = On\ndisplay_errors = On\nlog_level = notice", 
+            "text": "PHP\n\n\nPhp-fpm\n\n\nnewrelic.appname = \"web30 - liste.lillinet.org\"\npost_max_size = 52M\nupload_max_filesize = 52M\nmemory_limit = 192M\ncatch_workers_output = yes\nlog_errors = On\ndisplay_errors = On\nlog_level = notice\n\n\n\nLogs everything to file (htaccess format)\n\n\nphp_flag display_startup_errors on\nphp_flag display_errors off\nphp_flag html_errors off\nphp_flag log_errors on\n#php_flag ignore_repeated_errors off\n#php_flag ignore_repeated_source off\n#php_flag report_memleaks on\n#php_flag track_errors on\n#php_value docref_root 0\n#php_value docref_ext 0\nphp_value error_reporting -1\n#php_value log_errors_max_len 0#\nphp_value error_log /var/local/www/web1/phperrors.log\n\n\n\nThis logs sintax erros too, not logged by default in apache error log\nor not logged if you're passing options inside the php file itself using\nini_set.", 
             "title": "Php"
         }, 
         {
@@ -224,6 +224,11 @@
             "location": "/php/#php-fpm", 
             "text": "newrelic.appname = \"web30 - liste.lillinet.org\"\npost_max_size = 52M\nupload_max_filesize = 52M\nmemory_limit = 192M\ncatch_workers_output = yes\nlog_errors = On\ndisplay_errors = On\nlog_level = notice", 
             "title": "Php-fpm"
+        }, 
+        {
+            "location": "/php/#logs-everything-to-file-htaccess-format", 
+            "text": "php_flag display_startup_errors on\nphp_flag display_errors off\nphp_flag html_errors off\nphp_flag log_errors on\n#php_flag ignore_repeated_errors off\n#php_flag ignore_repeated_source off\n#php_flag report_memleaks on\n#php_flag track_errors on\n#php_value docref_root 0\n#php_value docref_ext 0\nphp_value error_reporting -1\n#php_value log_errors_max_len 0#\nphp_value error_log /var/local/www/web1/phperrors.log  This logs sintax erros too, not logged by default in apache error log\nor not logged if you're passing options inside the php file itself using\nini_set.", 
+            "title": "Logs everything to file (htaccess format)"
         }, 
         {
             "location": "/poormanvpn/", 
@@ -262,7 +267,7 @@
         }, 
         {
             "location": "/puppet/", 
-            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"", 
+            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"\n\n\n\nCookbooks\n\n\nMake an Exec run one time in N days\n\n\nexec { 'update composer':\n  command =\n \"wget ${source} -O ${destination}\",\n          onlyif  =\n \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =\n [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =\n File[$destination],\n}", 
             "title": "Puppet"
         }, 
         {
@@ -274,6 +279,11 @@
             "location": "/puppet/#checking-code", 
             "text": "Puppet syntax checks  puppet parser validate  file.pp   Hiera files in YAML format  ruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"", 
             "title": "Checking code"
+        }, 
+        {
+            "location": "/puppet/#cookbooks", 
+            "text": "Make an Exec run one time in N days  exec { 'update composer':\n  command =  \"wget ${source} -O ${destination}\",\n          onlyif  =  \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =  File[$destination],\n}", 
+            "title": "Cookbooks"
         }, 
         {
             "location": "/services/", 

@@ -143,6 +143,8 @@
                 
                     <li><a class="toctree-l4" href="#checking-code">Checking code</a></li>
                 
+                    <li><a class="toctree-l4" href="#cookbooks">Cookbooks</a></li>
+                
             
             </ul>
         
@@ -206,6 +208,15 @@
 </code></pre>
 <p>Hiera files in YAML format</p>
 <pre><code>ruby -e "require 'yaml'; YAML.parse(File.open('yourhierafile'))"
+</code></pre>
+<h2 id="cookbooks">Cookbooks</h2>
+<h3 id="make-an-exec-run-one-time-in-n-days">Make an Exec run one time in N days</h3>
+<pre><code>exec { 'update composer':
+  command =&gt; "wget ${source} -O ${destination}",
+          onlyif  =&gt; "test `find '${destination}' -mtime +${max_age}`",
+          path    =&gt; [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],
+          require =&gt; File[$destination],
+}
 </code></pre>
               
             </div>
