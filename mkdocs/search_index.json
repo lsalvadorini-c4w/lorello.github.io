@@ -41,6 +41,26 @@
             "title": "Client request"
         }, 
         {
+            "location": "/cisco/", 
+            "text": "Basic Cisco CLI\n\n\nShutdown an interface\n\n\n# enable\n# configure terminal\n(config)# interface FastEthernet 0/1\n(config-subif)# shutdown\n(config-subif)# end\n# write\n\n\n\nSet a description\n\n\n# en\n# conf t\n(config)# int FastEthernet 0/1\n(config-subif)# description This is 1st Port of My Switch\n(config-subif)# end\n# write", 
+            "title": "Cisco"
+        }, 
+        {
+            "location": "/cisco/#basic-cisco-cli", 
+            "text": "", 
+            "title": "Basic Cisco CLI"
+        }, 
+        {
+            "location": "/cisco/#shutdown-an-interface", 
+            "text": "# enable\n# configure terminal\n(config)# interface FastEthernet 0/1\n(config-subif)# shutdown\n(config-subif)# end\n# write", 
+            "title": "Shutdown an interface"
+        }, 
+        {
+            "location": "/cisco/#set-a-description", 
+            "text": "# en\n# conf t\n(config)# int FastEthernet 0/1\n(config-subif)# description This is 1st Port of My Switch\n(config-subif)# end\n# write", 
+            "title": "Set a description"
+        }, 
+        {
             "location": "/docker/", 
             "text": "Docker\n\n\nBasics\n\n\nSearch on Docker Hub Registry and pull an image to run locally\n\n\ndocker search ubuntu\ndocker pull ubuntu\n\n\n\nRun a command in a box\n\n\ndocker run \nimage\n \ncommand\n\n\n\n\nExample\n\n\ndocker run ubuntu:14.04 /bin/echo 'Hello world'\n\n\n\nAnd then?\n    docker ps -l\n    docker commit -m \"bla bla\" -u lorello \n \n\n    docker inspect \n\n\nContainers are never ephimeral, but they get a name only with a \ncommit\n\n\nInteractive and daemon containers\n\n\nRun a container with a TTY and with an interactive STDIN\n\n\ndocker run -t -i ubuntu:14.04 /bin/bash\n\n\n\nRun a daemonized process inside a container, inspect logs realtime,\nkill the container\n\n\nMYCONTAINER=$(docker run -d ubuntu:14.04 /bin/sh -c \"while true; do echo hello world; sleep 1; done\")\ndocker logs $MYCONTAINER\ndocker kill $MYCONTAINER\n\n\n\nYou can \nsave\n the container created using\n\n\ndocker commit -m \"added stupid loop\" -a lorello $MYCONTAINER lorello/stupid:trashme\ndocker rmi lorello/stupid:trashme\n\n\n\nAdding \n-P\n options to \nrun\n command let docker maps any required network port to the host.\nThen you can inspect ports mapped using the \nps\n command or running\n\n\ndocker ports $MYCONTAINER\n\n\n\nDockerfile\n\n\nBuild \n tag an image using a \nDockerfile\n\n\ndocker build -t=\"lorello/ubuntu:myapp\" .\n\n\n\nExposing services\n\n\nUse \nEXPOSE $port\n inside Dockerfile and then run the container with\n\n\n$MYCONTAINER=$(docker run -d -P \nIMAGE:TAG\n)\ndocker port $MYCONTAINER $PORT\n\n\n\nClean unused images\n\n\nRemove untagged images\n\n\ndocker rmi -f $(docker images | grep \"\nnone\n\" | awk \"{print \\$3}\")\n\n\n\nRemove unused images\n\n\ndocker images -q |xargs docker rmi\n\n\n\nVolumes\n\n\nData Volume Container\n\n\nCreate container volume for a mongodb server\n\n\ndocker run -v /data/db \u2013name db_data busybox echo Data only volume for mongo\n\n\n\nRun mongo instance with mounted volume\n\n\ndocker run -d -P \u2013volumes-from db_data \u2013name mymongo mongo\n\n\n\nEnter inside a running container (NSENTER)\n\n\nInstall \nnsenter\n utility and \ndocker-enter\n command doing this on the host\n\n\ndocker run --rm -v /usr/local/bin:/target jpetazzo/nsenter\n\n\n\nLaunch a bash inside the container $NAME running\n\n\ndocker-enter $NAME bash\n\n\n\nUse MacVlan interfaces\n\n\nExample: you want an \nhipache\n with a public interface directly connected\nto phisycal device, skipping the default NAT of docker.\n\n\nLe the host use the macvlan interface\n\n\nMove a host from traditional \neth0\n interface to \nmacvlan\n interface as main\nnetwork card, so it can play with a container that use \nmacvlan\n interface\n\n\nip addr del 10.1.1.123/24 dev eth0\nip link add link eth0 dev eth0m type macvlan mode bridge\nip link set eth0m up\nip addr add 10.1.1.123/24 dev eth0m\nroute add default gw 10.1.1.254\n\n\n\nStart a container that use the same macvlan interface\n\n\nCID=$(docker run -d ...)\npipework eth0 $CID 10.1.1.234/24@10.1.1.254", 
             "title": "Docker"
@@ -267,7 +287,7 @@
         }, 
         {
             "location": "/puppet/", 
-            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"\n\n\n\nCookbooks\n\n\nMake an Exec run one time in N days\n\n\nexec { 'update composer':\n  command =\n \"wget ${source} -O ${destination}\",\n          onlyif  =\n \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =\n [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =\n File[$destination],\n}", 
+            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"\n\n\n\nCookbooks\n\n\nMake an Exec run one time in N days\n\n\nexec { 'update composer':\n  command =\n \"wget ${source} -O ${destination}\",\n          onlyif  =\n \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =\n [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =\n File[$destination],\n}\n\n\n\nValidate ensure parameter\n\n\nvalidate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])\n\n\n\nDebug Facter \n Hiera\n\n\npuppet facts find FACTNAME", 
             "title": "Puppet"
         }, 
         {
@@ -282,7 +302,7 @@
         }, 
         {
             "location": "/puppet/#cookbooks", 
-            "text": "Make an Exec run one time in N days  exec { 'update composer':\n  command =  \"wget ${source} -O ${destination}\",\n          onlyif  =  \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =  File[$destination],\n}", 
+            "text": "Make an Exec run one time in N days  exec { 'update composer':\n  command =  \"wget ${source} -O ${destination}\",\n          onlyif  =  \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =  File[$destination],\n}  Validate ensure parameter  validate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])  Debug Facter   Hiera  puppet facts find FACTNAME", 
             "title": "Cookbooks"
         }, 
         {

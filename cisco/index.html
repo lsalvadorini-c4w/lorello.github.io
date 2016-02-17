@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Packages - Lorello technical notes</title>
+  <title>Cisco - Lorello technical notes</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Packages";
+    var mkdocs_page_name = "Cisco";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -59,6 +59,24 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../api-auth/">Api auth</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Cisco</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#basic-cisco-cli">Basic Cisco CLI</a></li>
+                
+                    <li><a class="toctree-l4" href="#shutdown-an-interface">Shutdown an interface</a></li>
+                
+                    <li><a class="toctree-l4" href="#set-a-description">Set a description</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -113,22 +131,6 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Packages</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#debianubuntu-packages">Debian/Ubuntu packages</a></li>
-                
-                    <li><a class="toctree-l4" href="#recover-a-config-file-from-original-packages">Recover a config file from original packages</a></li>
-                
-            
-            </ul>
-        
-    </li>
-<li>
-          
-            <li>
     <li class="toctree-l1 ">
         <a class="" href="../php/">Php</a>
         
@@ -138,6 +140,13 @@
             <li>
     <li class="toctree-l1 ">
         <a class="" href="../poormanvpn/">Poormanvpn</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../postfix/">Postfix</a>
         
     </li>
 <li>
@@ -185,7 +194,7 @@
     
       
     
-    <li>Packages</li>
+    <li>Cisco</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -199,20 +208,23 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="debianubuntu-packages">Debian/Ubuntu packages</h1>
-<h2 id="recover-a-config-file-from-original-packages">Recover a config file from original packages</h2>
-<ol>
-<li>
-<p>Find out what package installed the config file</p>
-<p>$ dpkg -S file.conf</p>
-</li>
-<li>
-<p>Rename (or delete) the config file you wish to restore</p>
-</li>
-<li>
-<p>apt-get -o Dpkg::Options::="--force-confmiss" install --reinstall <package-name></p>
-</li>
-</ol>
+                <h1 id="basic-cisco-cli">Basic Cisco CLI</h1>
+<h2 id="shutdown-an-interface">Shutdown an interface</h2>
+<pre><code># enable
+# configure terminal
+(config)# interface FastEthernet 0/1
+(config-subif)# shutdown
+(config-subif)# end
+# write
+</code></pre>
+<h2 id="set-a-description">Set a description</h2>
+<pre><code># en
+# conf t
+(config)# int FastEthernet 0/1
+(config-subif)# description This is 1st Port of My Switch
+(config-subif)# end
+# write
+</code></pre>
               
             </div>
           </div>
@@ -220,10 +232,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../php/" class="btn btn-neutral float-right" title="Php"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../docker/" class="btn btn-neutral float-right" title="Docker"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../openssl/" class="btn btn-neutral" title="Openssl"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api-auth/" class="btn btn-neutral" title="Api auth"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -253,10 +265,10 @@
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../openssl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../api-auth/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../php/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -65,6 +65,13 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../cisco/">Cisco</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../docker/">Docker</a>
         
     </li>
@@ -217,6 +224,12 @@
           path    =&gt; [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],
           require =&gt; File[$destination],
 }
+</code></pre>
+<h3 id="validate-ensure-parameter">Validate ensure parameter</h3>
+<pre><code>validate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])
+</code></pre>
+<h3 id="debug-facter-hiera">Debug Facter &amp;&amp; Hiera</h3>
+<pre><code>puppet facts find FACTNAME
 </code></pre>
               
             </div>
