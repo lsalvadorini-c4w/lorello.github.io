@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Postfix - Lorello technical notes</title>
+  <title>Bash - Lorello technical notes</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Postfix";
+    var mkdocs_page_name = "Bash";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -71,8 +71,15 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../bash/">Bash</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Bash</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#binsh">!/bin/sh</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -155,17 +162,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Postfix</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#postfix-mail-server">Postfix mail server</a></li>
-                
-                    <li><a class="toctree-l4" href="#debug-commands">Debug commands</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../postfix/">Postfix</a>
         
     </li>
 <li>
@@ -213,7 +211,7 @@
     
       
     
-    <li>Postfix</li>
+    <li>Bash</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -227,12 +225,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="postfix-mail-server">Postfix mail server</h1>
-<h2 id="debug-commands">Debug commands</h2>
-<p>Who is using the server to send messages?</p>
-<pre><code>find /var/spool/postfix/deferred -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'
-find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'
-</code></pre>
+                <h1 id="binsh">!/bin/sh</h1>
+<p>list=/tmp/blacklists/porn/domains
+cat $list | while read domain
+do</p>
+<p>done</p>
               
             </div>
           </div>
@@ -240,10 +237,10 @@ find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q |
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../puppet/" class="btn btn-neutral float-right" title="Puppet"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../bind/" class="btn btn-neutral float-right" title="Bind"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../poormanvpn/" class="btn btn-neutral" title="Poormanvpn"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../atom/" class="btn btn-neutral" title="Atom"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -273,10 +270,10 @@ find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q |
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../poormanvpn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../atom/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../puppet/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../bind/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

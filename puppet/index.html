@@ -65,6 +65,27 @@
           
             <li>
     <li class="toctree-l1 ">
+        <a class="" href="../atom/">Atom</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../bash/">Bash</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../bind/">Bind</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
         <a class="" href="../cisco/">Cisco</a>
         
     </li>
@@ -230,6 +251,29 @@
 </code></pre>
 <h3 id="debug-facter-hiera">Debug Facter &amp;&amp; Hiera</h3>
 <pre><code>puppet facts find FACTNAME
+</code></pre>
+<h3 id="make-the-resource-myresource-configurable-through-hiera-hash">Make the resource myresource configurable through hiera hash</h3>
+<pre><code>class myclass (
+  $values = {},
+){
+
+  validate_hash($values)
+
+  # ensure merging of hiera levels
+  $hiera_values = hiera_hash('myclass::values', {})     # this merge multiple levels
+  $real_values = $hiera_values ? {
+    undef   =&gt; $values,                                 # default values are the class parameter ones
+    default =&gt; $hiera_values,                           # if exists, hiera values has precedence
+  }
+
+  if $real_values {
+    create_resources('myresource', $real_values)
+  }
+</code></pre>
+<h3 id="be-sure-that-a-class-is-private">Be sure that a class is private</h3>
+<pre><code>  if $caller_module_name != $module_name {
+       fail("Use of private class ${name} by ${caller_module_name}")
+  }
 </code></pre>
               
             </div>

@@ -41,6 +41,51 @@
             "title": "Client request"
         }, 
         {
+            "location": "/atom/", 
+            "text": "ATOM Editor Keybindings\n\n\nCore\n\n\n\n\n\n\n\n\nApp management\n\n\nAction\n\n\n\n\n\n\n\n\n\n\nCTRL + SHIFT + P\n\n\nCommand palette\n\n\n\n\n\n\nALT + 1,9\n\n\nFocus on pane 1,9\n\n\n\n\n\n\nCTRL + \\\n\n\nToggle Tree Pane\n\n\n\n\n\n\nCTRL + K U/D/L/R\n\n\nSplit pane Up/Down/Left/Right\n\n\n\n\n\n\nCTRL + K CTRL U/D/L/R\n\n\nFocus pane Up/Down/Left/Right\n\n\n\n\n\n\nCTRL + K CTRL p/n\n\n\nFocus Previous/Next pane\n\n\n\n\n\n\nCTRL + ALT +/-\n\n\nIncrease/Decrease size of pane\n\n\n\n\n\n\nCTRL + K CTRL + w\n\n\nClone pane\n\n\n\n\n\n\nCTRL + TAB\n\n\nNext item in pane\n\n\n\n\n\n\nCTRL + SHIFT + TAB\n\n\nPrevious item in pane\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nEditing\n\n\nAction\n\n\n\n\n\n\n\n\n\n\nCTRL + a\n\n\nSelect All\n\n\n\n\n\n\nCTRL + z\n\n\nUndo\n\n\n\n\n\n\nCTRL + SHIFT + z\n\n\nRedo\n\n\n\n\n\n\nCTRL + [, ]\n\n\nIndent, Outdent\n\n\n\n\n\n\nCTRL + /\n\n\nComment\n\n\n\n\n\n\nCTRL + SHIFT + K\n\n\nDelete Line\n\n\n\n\n\n\nCTRL + SHIFT + D\n\n\nDuplicate Line\n\n\n\n\n\n\n\n\nPlugins\n\n\n\n\n\n\n\n\nProject Manager\n\n\nAction\n\n\n\n\n\n\n\n\n\n\nSHIFT + ALT + P\n\n\nList projects\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarkdown\n\n\nAction\n\n\n\n\n\n\n\n\n\n\nCTRL + SHIFT + M\n\n\nMarkdown Preview\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGit / GitHub\n\n\nAction\n\n\n\n\n\n\n\n\n\n\nALT + g d\n\n\nToggle Git diff\n\n\n\n\n\n\nALT + g g\n\n\nOpen on GitHub", 
+            "title": "Atom"
+        }, 
+        {
+            "location": "/atom/#atom-editor-keybindings", 
+            "text": "", 
+            "title": "ATOM Editor Keybindings"
+        }, 
+        {
+            "location": "/atom/#core", 
+            "text": "App management  Action      CTRL + SHIFT + P  Command palette    ALT + 1,9  Focus on pane 1,9    CTRL + \\  Toggle Tree Pane    CTRL + K U/D/L/R  Split pane Up/Down/Left/Right    CTRL + K CTRL U/D/L/R  Focus pane Up/Down/Left/Right    CTRL + K CTRL p/n  Focus Previous/Next pane    CTRL + ALT +/-  Increase/Decrease size of pane    CTRL + K CTRL + w  Clone pane    CTRL + TAB  Next item in pane    CTRL + SHIFT + TAB  Previous item in pane        Editing  Action      CTRL + a  Select All    CTRL + z  Undo    CTRL + SHIFT + z  Redo    CTRL + [, ]  Indent, Outdent    CTRL + /  Comment    CTRL + SHIFT + K  Delete Line    CTRL + SHIFT + D  Duplicate Line", 
+            "title": "Core"
+        }, 
+        {
+            "location": "/atom/#plugins", 
+            "text": "Project Manager  Action      SHIFT + ALT + P  List projects        Markdown  Action      CTRL + SHIFT + M  Markdown Preview        Git / GitHub  Action      ALT + g d  Toggle Git diff    ALT + g g  Open on GitHub", 
+            "title": "Plugins"
+        }, 
+        {
+            "location": "/bash/", 
+            "text": "!/bin/sh\n\n\nlist=/tmp/blacklists/porn/domains\ncat $list | while read domain\ndo\n\n\ndone", 
+            "title": "Bash"
+        }, 
+        {
+            "location": "/bash/#binsh", 
+            "text": "list=/tmp/blacklists/porn/domains\ncat $list | while read domain\ndo  done", 
+            "title": "!/bin/sh"
+        }, 
+        {
+            "location": "/bind/", 
+            "text": "Bind Name Server\n\n\nDetailed Logging\n\n\nlogging {\n\n  channel default_file { file \"/var/log/named/default.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel general_file { file \"/var/log/named/general.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel database_file { file \"/var/log/named/database.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel security_file { file \"/var/log/named/security.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel config_file { file \"/var/log/named/config.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel resolver_file { file \"/var/log/named/resolver.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel xfer-in_file { file \"/var/log/named/xfer-in.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel xfer-out_file { file \"/var/log/named/xfer-out.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel notify_file { file \"/var/log/named/notify.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel client_file { file \"/var/log/named/client.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel unmatched_file { file \"/var/log/named/unmatched.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel queries_file { file \"/var/log/named/queries.log\" versions 3 size 80m; severity dynamic; print-time yes; };\n  channel network_file { file \"/var/log/named/network.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel update_file { file \"/var/log/named/update.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel dispatch_file { file \"/var/log/named/dispatch.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel dnssec_file { file \"/var/log/named/dnssec.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel lame-servers_file { file \"/var/log/named/lame-servers.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n\n  category default { default_file; };\n  category general { general_file; };\n  category database { database_file; };\n  category security { security_file; };\n  category config { config_file; };\n  category resolver { resolver_file; };\n  category xfer-in { xfer-in_file; };\n  category xfer-out { xfer-out_file; };\n  category notify { notify_file; };\n  category client { client_file; };\n  category unmatched { unmatched_file; };\n  category queries { queries_file; };\n  category network { network_file; };\n  category update { update_file; };\n  category dispatch { dispatch_file; };\n  category dnssec { dnssec_file; };\n  category lame-servers { lame-servers_file; };\n\n};", 
+            "title": "Bind"
+        }, 
+        {
+            "location": "/bind/#bind-name-server", 
+            "text": "", 
+            "title": "Bind Name Server"
+        }, 
+        {
+            "location": "/bind/#detailed-logging", 
+            "text": "logging {\n\n  channel default_file { file \"/var/log/named/default.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel general_file { file \"/var/log/named/general.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel database_file { file \"/var/log/named/database.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel security_file { file \"/var/log/named/security.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel config_file { file \"/var/log/named/config.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel resolver_file { file \"/var/log/named/resolver.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel xfer-in_file { file \"/var/log/named/xfer-in.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel xfer-out_file { file \"/var/log/named/xfer-out.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel notify_file { file \"/var/log/named/notify.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel client_file { file \"/var/log/named/client.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel unmatched_file { file \"/var/log/named/unmatched.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel queries_file { file \"/var/log/named/queries.log\" versions 3 size 80m; severity dynamic; print-time yes; };\n  channel network_file { file \"/var/log/named/network.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel update_file { file \"/var/log/named/update.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel dispatch_file { file \"/var/log/named/dispatch.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel dnssec_file { file \"/var/log/named/dnssec.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n  channel lame-servers_file { file \"/var/log/named/lame-servers.log\" versions 3 size 5m; severity dynamic; print-time yes; };\n\n  category default { default_file; };\n  category general { general_file; };\n  category database { database_file; };\n  category security { security_file; };\n  category config { config_file; };\n  category resolver { resolver_file; };\n  category xfer-in { xfer-in_file; };\n  category xfer-out { xfer-out_file; };\n  category notify { notify_file; };\n  category client { client_file; };\n  category unmatched { unmatched_file; };\n  category queries { queries_file; };\n  category network { network_file; };\n  category update { update_file; };\n  category dispatch { dispatch_file; };\n  category dnssec { dnssec_file; };\n  category lame-servers { lame-servers_file; };\n\n};", 
+            "title": "Detailed Logging"
+        }, 
+        {
             "location": "/cisco/", 
             "text": "Basic Cisco CLI\n\n\nShutdown an interface\n\n\n# enable\n# configure terminal\n(config)# interface FastEthernet 0/1\n(config-subif)# shutdown\n(config-subif)# end\n# write\n\n\n\nSet a description\n\n\n# en\n# conf t\n(config)# int FastEthernet 0/1\n(config-subif)# description This is 1st Port of My Switch\n(config-subif)# end\n# write", 
             "title": "Cisco"
@@ -287,7 +332,7 @@
         }, 
         {
             "location": "/puppet/", 
-            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"\n\n\n\nCookbooks\n\n\nMake an Exec run one time in N days\n\n\nexec { 'update composer':\n  command =\n \"wget ${source} -O ${destination}\",\n          onlyif  =\n \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =\n [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =\n File[$destination],\n}\n\n\n\nValidate ensure parameter\n\n\nvalidate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])\n\n\n\nDebug Facter \n Hiera\n\n\npuppet facts find FACTNAME", 
+            "text": "Puppet resources\n\n\nChecking code\n\n\nPuppet syntax checks\n\n\npuppet parser validate \nfile.pp\n\n\n\n\nHiera files in YAML format\n\n\nruby -e \"require 'yaml'; YAML.parse(File.open('yourhierafile'))\"\n\n\n\nCookbooks\n\n\nMake an Exec run one time in N days\n\n\nexec { 'update composer':\n  command =\n \"wget ${source} -O ${destination}\",\n          onlyif  =\n \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =\n [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =\n File[$destination],\n}\n\n\n\nValidate ensure parameter\n\n\nvalidate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])\n\n\n\nDebug Facter \n Hiera\n\n\npuppet facts find FACTNAME\n\n\n\nMake the resource myresource configurable through hiera hash\n\n\nclass myclass (\n  $values = {},\n){\n\n  validate_hash($values)\n\n  # ensure merging of hiera levels\n  $hiera_values = hiera_hash('myclass::values', {})     # this merge multiple levels\n  $real_values = $hiera_values ? {\n    undef   =\n $values,                                 # default values are the class parameter ones\n    default =\n $hiera_values,                           # if exists, hiera values has precedence\n  }\n\n  if $real_values {\n    create_resources('myresource', $real_values)\n  }\n\n\n\nBe sure that a class is private\n\n\n  if $caller_module_name != $module_name {\n       fail(\"Use of private class ${name} by ${caller_module_name}\")\n  }", 
             "title": "Puppet"
         }, 
         {
@@ -302,7 +347,7 @@
         }, 
         {
             "location": "/puppet/#cookbooks", 
-            "text": "Make an Exec run one time in N days  exec { 'update composer':\n  command =  \"wget ${source} -O ${destination}\",\n          onlyif  =  \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =  File[$destination],\n}  Validate ensure parameter  validate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])  Debug Facter   Hiera  puppet facts find FACTNAME", 
+            "text": "Make an Exec run one time in N days  exec { 'update composer':\n  command =  \"wget ${source} -O ${destination}\",\n          onlyif  =  \"test `find '${destination}' -mtime +${max_age}`\",\n          path    =  [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'  ],\n          require =  File[$destination],\n}  Validate ensure parameter  validate_re($ensure, [ '^installed$', '^present$', '^absent$', '^latest$' ])  Debug Facter   Hiera  puppet facts find FACTNAME  Make the resource myresource configurable through hiera hash  class myclass (\n  $values = {},\n){\n\n  validate_hash($values)\n\n  # ensure merging of hiera levels\n  $hiera_values = hiera_hash('myclass::values', {})     # this merge multiple levels\n  $real_values = $hiera_values ? {\n    undef   =  $values,                                 # default values are the class parameter ones\n    default =  $hiera_values,                           # if exists, hiera values has precedence\n  }\n\n  if $real_values {\n    create_resources('myresource', $real_values)\n  }  Be sure that a class is private    if $caller_module_name != $module_name {\n       fail(\"Use of private class ${name} by ${caller_module_name}\")\n  }", 
             "title": "Cookbooks"
         }, 
         {

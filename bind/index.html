@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Postfix - Lorello technical notes</title>
+  <title>Bind - Lorello technical notes</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Postfix";
+    var mkdocs_page_name = "Bind";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -78,8 +78,17 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../bind/">Bind</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Bind</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#bind-name-server">Bind Name Server</a></li>
+                
+                    <li><a class="toctree-l4" href="#detailed-logging">Detailed Logging</a></li>
+                
+            
+            </ul>
         
     </li>
 <li>
@@ -155,17 +164,8 @@
 <li>
           
             <li>
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Postfix</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#postfix-mail-server">Postfix mail server</a></li>
-                
-                    <li><a class="toctree-l4" href="#debug-commands">Debug commands</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../postfix/">Postfix</a>
         
     </li>
 <li>
@@ -213,7 +213,7 @@
     
       
     
-    <li>Postfix</li>
+    <li>Bind</li>
     <li class="wy-breadcrumbs-aside">
       
         
@@ -227,11 +227,47 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="postfix-mail-server">Postfix mail server</h1>
-<h2 id="debug-commands">Debug commands</h2>
-<p>Who is using the server to send messages?</p>
-<pre><code>find /var/spool/postfix/deferred -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'
-find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q | grep 'Authenticated sender'
+                <h1 id="bind-name-server">Bind Name Server</h1>
+<h2 id="detailed-logging">Detailed Logging</h2>
+<pre><code>logging {
+
+  channel default_file { file "/var/log/named/default.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel general_file { file "/var/log/named/general.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel database_file { file "/var/log/named/database.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel security_file { file "/var/log/named/security.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel config_file { file "/var/log/named/config.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel resolver_file { file "/var/log/named/resolver.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel xfer-in_file { file "/var/log/named/xfer-in.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel xfer-out_file { file "/var/log/named/xfer-out.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel notify_file { file "/var/log/named/notify.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel client_file { file "/var/log/named/client.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel unmatched_file { file "/var/log/named/unmatched.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel queries_file { file "/var/log/named/queries.log" versions 3 size 80m; severity dynamic; print-time yes; };
+  channel network_file { file "/var/log/named/network.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel update_file { file "/var/log/named/update.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel dispatch_file { file "/var/log/named/dispatch.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel dnssec_file { file "/var/log/named/dnssec.log" versions 3 size 5m; severity dynamic; print-time yes; };
+  channel lame-servers_file { file "/var/log/named/lame-servers.log" versions 3 size 5m; severity dynamic; print-time yes; };
+
+  category default { default_file; };
+  category general { general_file; };
+  category database { database_file; };
+  category security { security_file; };
+  category config { config_file; };
+  category resolver { resolver_file; };
+  category xfer-in { xfer-in_file; };
+  category xfer-out { xfer-out_file; };
+  category notify { notify_file; };
+  category client { client_file; };
+  category unmatched { unmatched_file; };
+  category queries { queries_file; };
+  category network { network_file; };
+  category update { update_file; };
+  category dispatch { dispatch_file; };
+  category dnssec { dnssec_file; };
+  category lame-servers { lame-servers_file; };
+
+};
 </code></pre>
               
             </div>
@@ -240,10 +276,10 @@ find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q |
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../puppet/" class="btn btn-neutral float-right" title="Puppet"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../cisco/" class="btn btn-neutral float-right" title="Cisco"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../poormanvpn/" class="btn btn-neutral" title="Poormanvpn"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bash/" class="btn btn-neutral" title="Bash"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -273,10 +309,10 @@ find /var/spool/postfix/active -type f | xargs -n1 basename | xargs postcat -q |
           <a class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../poormanvpn/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../bash/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../puppet/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../cisco/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
