@@ -43,6 +43,14 @@
 
     
     <url>
+     <loc>None/changelog/</loc>
+     <lastmod>2016-02-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>None/cisco/</loc>
      <lastmod>2016-02-29</lastmod>
      <changefreq>daily</changefreq>
