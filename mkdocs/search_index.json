@@ -172,8 +172,23 @@
         }, 
         {
             "location": "/git/", 
-            "text": "git config --global http.postBuffer 1024000000", 
+            "text": "Git Versioning System\n\n\nConfig\n\n\ngit config --global http.postBuffer 1024000000\n\n\n\nChange Log generation\n\n\nList file names changed between two revisions IDs\n\n\ngit diff $oldrev $newrev --diff-filter=ACDMR --name-only\n\n\n\nList changes between two revisions IDs, with author and commit message\n\n\n# sed removes double \\n that come from git log (%B)\ngit log --abbrev-commit --pretty=format:'* %h %an %ar: %B' ${oldrev}..${newrev} | sed ':a;N;$!ba;s/\\n\\n/\\n/g'\n\n\n\nList changes after a specified date, with author and commit message\n\n\ngit log --abbrev-commit --pretty=format:'* %h %an %ar: %B' --after='2016-02-01'| sed ':a;N;$!ba;s/\\n\\n/\\n/g'\n\n\n\nA changelog for Slack chat\n\n\nBRANCH=$(git rev-parse --abbrev-ref HEAD)\nHOSTNAME=$(hostname -f)\n\n# Links to changed files\nFILES_CHANGED=''\nfor ITEM in $(git diff $oldrev $newrev --diff-filter=ACDMR --name-only); do\n  FILES_CHANGED=\"$FILES_CHANGED\\n* \n$GIT_REPO/blob/$newrev/$ITEM|$ITEM\n\"\ndone\n\nNUM_CHANGED=$(git diff $oldrev $newrev --diff-filter=ACDMR --name-only | wc -l)\nBASEURL=\"$GIT_REPO/commit\"\n\nGITLOG=$(git log --abbrev-commit --pretty=format:\"* %an commit \n$BASEURL/%H|%h\n di %ar: %B\" ${oldrev}..${newrev} | sed ':a;N;$!ba;s/\\n\\n/\\n/g')\n\nCHANGELOG=\"*$NUM_CHANGED* files changed:\\n$FILES_CHANGED\\n\\n*Details*:\\n$GITLOG\\n\"", 
             "title": "Git"
+        }, 
+        {
+            "location": "/git/#git-versioning-system", 
+            "text": "", 
+            "title": "Git Versioning System"
+        }, 
+        {
+            "location": "/git/#config", 
+            "text": "git config --global http.postBuffer 1024000000", 
+            "title": "Config"
+        }, 
+        {
+            "location": "/git/#change-log-generation", 
+            "text": "List file names changed between two revisions IDs  git diff $oldrev $newrev --diff-filter=ACDMR --name-only  List changes between two revisions IDs, with author and commit message  # sed removes double \\n that come from git log (%B)\ngit log --abbrev-commit --pretty=format:'* %h %an %ar: %B' ${oldrev}..${newrev} | sed ':a;N;$!ba;s/\\n\\n/\\n/g'  List changes after a specified date, with author and commit message  git log --abbrev-commit --pretty=format:'* %h %an %ar: %B' --after='2016-02-01'| sed ':a;N;$!ba;s/\\n\\n/\\n/g'  A changelog for Slack chat  BRANCH=$(git rev-parse --abbrev-ref HEAD)\nHOSTNAME=$(hostname -f)\n\n# Links to changed files\nFILES_CHANGED=''\nfor ITEM in $(git diff $oldrev $newrev --diff-filter=ACDMR --name-only); do\n  FILES_CHANGED=\"$FILES_CHANGED\\n*  $GIT_REPO/blob/$newrev/$ITEM|$ITEM \"\ndone\n\nNUM_CHANGED=$(git diff $oldrev $newrev --diff-filter=ACDMR --name-only | wc -l)\nBASEURL=\"$GIT_REPO/commit\"\n\nGITLOG=$(git log --abbrev-commit --pretty=format:\"* %an commit  $BASEURL/%H|%h  di %ar: %B\" ${oldrev}..${newrev} | sed ':a;N;$!ba;s/\\n\\n/\\n/g')\n\nCHANGELOG=\"*$NUM_CHANGED* files changed:\\n$FILES_CHANGED\\n\\n*Details*:\\n$GITLOG\\n\"", 
+            "title": "Change Log generation"
         }, 
         {
             "location": "/ip/", 
