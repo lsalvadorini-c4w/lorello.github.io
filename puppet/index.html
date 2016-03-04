@@ -245,6 +245,9 @@
 <pre><code>ruby -e "require 'yaml'; YAML.parse(File.open('yourhierafile'))"
 </code></pre>
 <h2 id="cookbooks">Cookbooks</h2>
+<h3 id="validating">Validating</h3>
+<pre><code>validate_re($ensure, '(present|absent)', "ensure must be 'present' or 'absent', checked value is '$ensure'")
+</code></pre>
 <h3 id="make-an-exec-run-one-time-in-n-days">Make an Exec run one time in N days</h3>
 <pre><code>exec { 'update composer':
   command =&gt; "wget ${source} -O ${destination}",
