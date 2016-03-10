@@ -99,6 +99,14 @@
             
                 <li class="toctree-l3"><a href="#basic-cisco-cli">Basic Cisco CLI</a></li>
                 
+                    <li><a class="toctree-l4" href="#list-intefaces-with-descriptions">List intefaces with descriptions</a></li>
+                
+                    <li><a class="toctree-l4" href="#show-detailed-config-for-a-specific-interface">Show detailed config for a specific interface</a></li>
+                
+                    <li><a class="toctree-l4" href="#show-list-of-vlan-and-connected-interfaces">Show list of vlan and connected interfaces</a></li>
+                
+                    <li><a class="toctree-l4" href="#setup-an-interface-with">Setup an interface with</a></li>
+                
                     <li><a class="toctree-l4" href="#shutdown-an-interface">Shutdown an interface</a></li>
                 
                     <li><a class="toctree-l4" href="#set-a-description">Set a description</a></li>
@@ -237,63 +245,25 @@
             <div class="section">
               
                 <h1 id="basic-cisco-cli">Basic Cisco CLI</h1>
+<h2 id="list-intefaces-with-descriptions">List intefaces with descriptions</h2>
 <pre><code>show int description
-
-show running-config interface FastEthernet4/38
-
-show vlan brief
-
-
-1    default                          active    Gi1/0/23
-99   trash                            active    Gi1/0/1, Gi1/0/22, Gi1/0/24, Gi1/0/25, Gi1/0/26, Gi1/0/27
-100  intranet                         active    Gi1/0/3, Gi1/0/5, Gi1/0/6, Gi1/0/7, Gi1/0/8, Gi1/0/9, Gi1/0/10, Gi1/0/11, Gi1/0/12, Gi1/0/13, Gi1/0/14, Gi1/0/15, Gi1/0/16
-101  guest                            active    
-102  intranet-old                     active    
-103  viking-dmz                       active    
-104  voip                             active    
-105  sap                              active    
-106  lab                              active    Gi1/0/4, Gi1/0/21
-108  resdata                          active    
-150  ap                               active    
-400  mngt                             active    Gi1/0/19
-401  intranet-backplane               active    
-600  netcruise                        active    
-601  viking                           active
-
-interface GigabitEthernet1/0/3
- description telecom apps - porta 4
+</code></pre>
+<h2 id="show-detailed-config-for-a-specific-interface">Show detailed config for a specific interface</h2>
+<pre><code>show running-config interface FastEthernet4/38
+</code></pre>
+<h2 id="show-list-of-vlan-and-connected-interfaces">Show list of vlan and connected interfaces</h2>
+<pre><code>show vlan brief
+</code></pre>
+<h2 id="setup-an-interface-with">Setup an interface with</h2>
+<pre><code>interface GigabitEthernet1/0/3
+ description Gianni's desktop
  switchport access vlan 100
  switchport trunk native vlan 100
  switchport trunk allowed vlan 100,104
  switchport mode trunk
  spanning-tree bpduguard disable
 end
-
-interface GigabitEthernet1/0/2
- description AP Meraki02
- switchport access vlan 400
- switchport trunk native vlan 400
- switchport trunk allowed vlan 100-108,400,401
- switchport mode trunk
- spanning-tree bpduguard disable
-end
-
-Current configuration : 216 bytes
-!
-interface GigabitEthernet1/0/12
- description resdata
- switchport access vlan 99
- switchport trunk native vlan 108
- switchport trunk allowed vlan 104,108
- switchport mode trunk
- spanning-tree bpduguard disable
-end
 </code></pre>
-<p>meraki02 -&gt; patricia-b pt Gi1/0/2
-meraki04 -&gt; patricia-a pt Gi1/0/2
-meraki03 -&gt; patricia-c pt Gi1/0/2
-meraki05 -&gt; patricia-d pt Gi1/0/2
-meraki05 -&gt; patricia-d pt Gi1/0/3</p>
 <h2 id="shutdown-an-interface">Shutdown an interface</h2>
 <pre><code># enable
 # configure terminal

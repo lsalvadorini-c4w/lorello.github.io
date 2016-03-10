@@ -248,6 +248,11 @@
 <h3 id="validating">Validating</h3>
 <pre><code>validate_re($ensure, '(present|absent)', "ensure must be 'present' or 'absent', checked value is '$ensure'")
 </code></pre>
+<h3 id="making-a-private-class">Making a private class</h3>
+<pre><code>if $caller_module_name != $module_name {
+  warning("${name} is not part of the public API of the ${module_name} module and should not be directly included in the manifest.")
+}
+</code></pre>
 <h3 id="make-an-exec-run-one-time-in-n-days">Make an Exec run one time in N days</h3>
 <pre><code>exec { 'update composer':
   command =&gt; "wget ${source} -O ${destination}",
@@ -280,9 +285,29 @@
     create_resources('myresource', $real_values)
   }
 </code></pre>
-<h3 id="be-sure-that-a-class-is-private">Be sure that a class is private</h3>
-<pre><code>  if $caller_module_name != $module_name {
-       fail("Use of private class ${name} by ${caller_module_name}")
+<h3 id="check-for-os-family-and-version">Check for OS family and version</h3>
+<pre><code>case $::osfamily {
+  'Debian': {
+    # do common debian/ubuntu things
+    case $::operatingsystem {
+      'Debian': {
+        if versioncmp($::lsbmajdistrelease, '8') &lt; 0 {
+          # do specific things for Debian &gt;= 8
+        }
+      }
+      'Ubuntu': {
+        # do specific things for Ubuntu
+      }
+      default: {
+        fail("Unsupported osfamily: ${::osfamily} operatingsystem: ${::operatingsystem}, module ${module_name} only support operatingsystem Debian and Ubuntu on osfamily Debian")
+      }
+    }
+  }
+  'RedHat': {
+    # do specific things for RedHat
+  }
+  default: {
+    fail("Unsupported osfamily: ${::osfamily} operatingsystem: ${::operatingsystem}, module ${module_name} only support osfamily Debian and RedHat")
   }
 </code></pre>
               
